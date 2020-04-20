@@ -118,6 +118,12 @@ html, body {
 	top: 1%;
 	height: 30px;
 	width: 30px;
+	transition: width 100ms ease-in-out, height 100ms ease-in-out;
+}
+
+.botonsalir:hover{
+	height: 33px;
+	width: 33px;
 }
 
 .nombreapp{

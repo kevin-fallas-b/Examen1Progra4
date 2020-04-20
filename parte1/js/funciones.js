@@ -28,13 +28,13 @@ function reloj(){
 }
 
 function openApp(){
-    document.getElementById("pantalla").innerHTML +="<div class='contenedorapp'>"+
-                                                        " <img src='./rsc/img/exit.png' class='botonsalir'>"+
-                                                        " <label class='nombreapp'>"+this.getAttribute('data-value')+" </label>"+
-                                                        " <object class='app' type='text/html' data='./rsc/apps/"+this.id+"/index.html' width='500px' height='300px'>"+
-                                                        " </object>"+
-                                                    "</div>";
-
+     ventanaNueva="<div class='contenedorapp'>"+
+                " <img src='./rsc/img/exit.png' class='botonsalir'>"+
+                " <label class='nombreapp'>"+this.getAttribute('data-value')+" </label>"+
+                " <object class='app' type='text/html' data='./rsc/apps/"+this.id+"/index.html' width='500px' height='300px'>"+
+                " </object>"+
+                "</div>";
+    document.getElementById("pantalla").insertAdjacentHTML('beforeend',ventanaNueva);
     ventanas = document.getElementsByClassName("contenedorapp");
     agregarDragAndDrop(ventanas.length-1);
     agregarsalirapp();
@@ -71,7 +71,13 @@ function mousedown(e){
 }
 
 function agregarsalirapp(){
- 
+    var botonsalir = document.getElementsByClassName('botonsalir');
+    botonsalir[0].addEventListener('click',cerrarventana);
+}
+
+function cerrarventana(){
+    document.getElementById("pantalla").removeChild(ventanas[0]);
+
 }
 
 function abrircalendario(){
