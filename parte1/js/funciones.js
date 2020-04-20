@@ -2,9 +2,10 @@ window.addEventListener('load',funcionInicial, false);
 
 var ventanas;
 var relojsup;
+var calendarioabierto;
 
 function funcionInicial(){
-
+    calendarioabierto=false;
     //encontrar app y darle evento de abrir
     var apps = document.getElementsByClassName("icons");
     for(var i=0; i<apps.length;i++){
@@ -28,6 +29,10 @@ function reloj(){
 }
 
 function openApp(){
+    ventanas = document.getElementsByClassName("contenedorapp");
+    if(ventanas.length>0){
+        cerrarventana();
+    }
      ventanaNueva="<div class='contenedorapp'>"+
                 " <img src='./rsc/img/exit.png' class='botonsalir'>"+
                 " <label class='nombreapp'>"+this.getAttribute('data-value')+" </label>"+
@@ -35,7 +40,6 @@ function openApp(){
                 " </object>"+
                 "</div>";
     document.getElementById("pantalla").insertAdjacentHTML('beforeend',ventanaNueva);
-    ventanas = document.getElementsByClassName("contenedorapp");
     agregarDragAndDrop(ventanas.length-1);
     agregarsalirapp();
 }
@@ -80,6 +84,15 @@ function cerrarventana(){
 
 }
 
-function abrircalendario(){
-    console.log("abrio calendario");
+function abrircalendario(e){
+    if(!calendarioabierto){
+        document.getElementById('calendario').removeAttribute("hidden");
+        calendarioabierto=true;
+        //agregar que en cualquier parte me cierre el calendario
+        document.getElementById('pantalla').addEventListener('click',abrircalendario);
+        e.stopPropagation();
+    }else{
+        document.getElementById('calendario').setAttribute("hidden",true);
+        calendarioabierto=false;
+    }
 }

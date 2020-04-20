@@ -8,6 +8,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <script src='js/funciones.js'></script>
+
+    <!--agregar calendario bien liviano-->
+    <link rel="stylesheet" href="css/calendar.css" />
+	
 </head>
 <body>
     <div id='pantalla'>
@@ -16,7 +20,41 @@
             <label id='relojsuperior'></label>
             <img src="rsc/img/gear.png" alt="Cambiar Fondo" title='Cambiar Fondo' id='gearcambiarfondo'>
         </div>
-        
+
+        <div class="container-calendar" id='calendario' hidden='false'>
+
+            <h3 id="monthAndYear"></h3>
+          
+            <div class="button-container-calendar">
+              <button id="previous" onclick="previous()">&#8249;</button>
+              <button id="next" onclick="next()">&#8250;</button>
+            </div>
+          
+            <table class="table-calendar" id="calendar" data-lang="en">
+              <thead id="thead-month"></thead>
+              <tbody id="calendar-body"></tbody>
+            </table>
+          
+            <div class="footer-container-calendar">
+              <label for="month">Brincar a </label>
+              <select id="month" onchange="jump()">
+                <option value=0>Ene</option>
+                <option value=1>Feb</option>
+                <option value=2>Mar</option>
+                <option value=3>Abr</option>
+                <option value=4>May</option>
+                <option value=5>Jun</option>
+                <option value=6>Jul</option>
+                <option value=7>Ago</option>
+                <option value=8>Sep</option>
+                <option value=9>Oct</option>
+                <option value=10>Nov</option>
+                <option value=11>Dec</option>
+              </select>
+              <select id="year" onchange="jump()"></select>
+            </div>
+            <script src="js/calendar.js"></script>
+          </div>
         <div id='panel'>
             <div id='panel_icons'>
                 
@@ -25,17 +63,17 @@
                     <div class='label_icon'>Comic Maker!</div>
                 </div>
 
-                <div id='inventario' class='icons' 
+                <div id='inventario' class='icons' data-value='Inventario' 
                 style="background:url('rsc/apps/inventario/icon.png') no-repeat;">
                     <div class='label_icon'>Inventario</div>
                 </div>
                 
-                <div id='twitter' class='icons' 
+                <div id='twitter' class='icons' data-value='My Twitter'
                 style="background:url('rsc/apps/twitter/icon.png') no-repeat;">
                     <div class='label_icon'>My Twitter</div>
                 </div>
 
-                <div id='controlfunionarios' class='icons' 
+                <div id='controlfunionarios' class='icons' data-value='Mantenimiento de Funcionarios'
                 style="background:url('rsc/apps/controlfuncionarios/icon.png') no-repeat;">
                     <div class='label_icon'>Funcionarios</div>
                 </div>

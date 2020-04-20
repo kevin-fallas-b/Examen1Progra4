@@ -132,3 +132,13 @@ html, body {
 	top:1%;
 	color: white;
 }
+
+#calendario{
+	position: absolute;
+	top: 3.7%;
+	left: 39%;
+	height: 280px;
+	width: 20%;
+	transition: hidden 100ms ease-in-out;
+
+}
