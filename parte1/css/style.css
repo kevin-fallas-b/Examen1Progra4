@@ -18,6 +18,7 @@ html, body {
 #barrasuperior{
     position: absolute;
     width: 100%;
+    top: 0px;
     height: 3.5%;
     background-color: grey;
     align-items: center;
@@ -31,7 +32,8 @@ html, body {
 	font-family: Segoe UI, Verdana;
 	font-size: 12px;
 	font-weight: bold;
-	color: #FFF;
+    color: #FFF;
+    transition: font-size 100ms ease-in-out;
 }
 
 
@@ -77,21 +79,50 @@ html, body {
 	top: 70px;
 }
 
-
-
 #gearcambiarfondo{
     position: absolute;
-    height: 34px;
+	height: auto;
+	max-height: 34px;
     width: 35px;
-}
-
-#contenedorgear{
-    position: absolute;
     right: 2%;
     top: -3px;
-    height: 30px;
-    width: 35px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
 }
-#contenedorgear:hover{
-    background-color: whitesmoke;
+
+#gearcambiarfondo:hover{
+    width: 38px;
+    height: 37px;
+}
+
+.contenedorapp{
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	left: 25%;
+	top: 10%;
+	background-color: #1d2620;
+}
+
+.app{
+	position: relative;
+	width: 99%;
+	height: 92.5%;
+	top: 6.5%;
+	left: 0.5%;
+	background-color: whitesmoke;
+}
+
+.botonsalir{
+	position: absolute;
+	right: 1%;
+	top: 1%;
+	height: 30px;
+	width: 30px;
+}
+
+.nombreapp{
+	position: absolute;
+	left: 1%;
+	top:1%;
+	color: white;
 }
