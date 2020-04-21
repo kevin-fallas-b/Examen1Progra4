@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <link rel="shortcut icon" href="favicon.png">
-    <title>Kevin Fallas - Luis Vargas</title>
+    <title>Super escritorio web 3000</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <script src='js/funciones.js'></script>
@@ -15,46 +15,10 @@
 </head>
 <body>
     <div id='pantalla'>
-
         <div id='barrasuperior'>
             <label id='relojsuperior'></label>
             <img src="rsc/img/gear.png" alt="Cambiar Fondo" title='Cambiar Fondo' id='gearcambiarfondo'>
         </div>
-
-        <div class="container-calendar" id='calendario' hidden='false'>
-
-            <h3 id="monthAndYear"></h3>
-          
-            <div class="button-container-calendar">
-              <button id="previous" onclick="previous()">&#8249;</button>
-              <button id="next" onclick="next()">&#8250;</button>
-            </div>
-          
-            <table class="table-calendar" id="calendar" data-lang="en">
-              <thead id="thead-month"></thead>
-              <tbody id="calendar-body"></tbody>
-            </table>
-          
-            <div class="footer-container-calendar">
-              <label for="month">Brincar a </label>
-              <select id="month" onchange="jump()">
-                <option value=0>Ene</option>
-                <option value=1>Feb</option>
-                <option value=2>Mar</option>
-                <option value=3>Abr</option>
-                <option value=4>May</option>
-                <option value=5>Jun</option>
-                <option value=6>Jul</option>
-                <option value=7>Ago</option>
-                <option value=8>Sep</option>
-                <option value=9>Oct</option>
-                <option value=10>Nov</option>
-                <option value=11>Dec</option>
-              </select>
-              <select id="year" onchange="jump()"></select>
-            </div>
-            <script src="js/calendar.js"></script>
-          </div>
         <div id='panel'>
             <div id='panel_icons'>
                 
@@ -81,7 +45,71 @@
                 
             </div>
         </div>
-
+        
     </div>
+
+    <!--agregar div para cambiar fondo-->
+    <div id='contenedorfondos'>
+        <div id='fondo0' class="contenedorimagenfondo" data-value='fondo.jpg'>
+            <img src="rsc/img/fondo.jpg" alt="" class="previewfondo">
+            <div class="overlay">
+                <div class="textofondo">
+                    Escoger Fondo
+                </div>
+            </div>
+        </div>
+
+        <div id='fondo0' class="contenedorimagenfondo" data-value='fondo1.jpeg'>
+            <img src="rsc/img/fondo1.jpeg" alt="" class="previewfondo">
+            <div class="overlay">
+                <div class="textofondo">
+                Escoger Fondo
+            </div></div>
+        </div>
+        <div id='fondo0' class="contenedorimagenfondo" data-value='fondo2.jpg'>
+            <img src="rsc/img/fondo2.jpg" alt="" class="previewfondo">
+            <div class="overlay">
+                <div class="textofondo">
+                    Escoger Fondo
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-calendar" id='calendario'>
+
+        <h3 id="monthAndYear"></h3>
+      
+        <div class="button-container-calendar">
+          <button id="previous" onclick="previous()">&#8249;</button>
+          <button id="next" onclick="next()">&#8250;</button>
+        </div>
+      
+        <table class="table-calendar" id="calendar" data-lang="en">
+          <thead id="thead-month"></thead>
+          <tbody id="calendar-body"></tbody>
+        </table>
+      
+        <div class="footer-container-calendar">
+          <label for="month">Brincar a </label>
+          <select id="month" onchange="jump()">
+            <option value=0>Ene</option>
+            <option value=1>Feb</option>
+            <option value=2>Mar</option>
+            <option value=3>Abr</option>
+            <option value=4>May</option>
+            <option value=5>Jun</option>
+            <option value=6>Jul</option>
+            <option value=7>Ago</option>
+            <option value=8>Sep</option>
+            <option value=9>Oct</option>
+            <option value=10>Nov</option>
+            <option value=11>Dec</option>
+          </select>
+          <select id="year" onchange="jump()"></select>
+        </div>
+        <script src="js/calendar.js"></script>
+      </div>
 </body>
 </html>

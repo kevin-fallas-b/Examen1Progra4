@@ -3,8 +3,10 @@ window.addEventListener('load',funcionInicial, false);
 var ventanas;
 var relojsup;
 var calendarioabierto;
+var mostrandofondos;
+var fondos;
 
-function funcionInicial(){
+function funcionInicial(e){
     calendarioabierto=false;
     //encontrar app y darle evento de abrir
     var apps = document.getElementsByClassName("icons");
@@ -16,6 +18,18 @@ function funcionInicial(){
     relojsup = document.getElementById("relojsuperior");
     setInterval("reloj()",1000);
     relojsup.addEventListener('click',abrircalendario,false);
+
+
+    //click sobre cambiar fondo
+    document.getElementById('gearcambiarfondo').addEventListener('click',mostrarfondos);
+    mostrandofondos=false;
+
+    //click sobre un fondo
+    fondos = document.getElementsByClassName('contenedorimagenfondo');
+    for(var i=0; i< fondos.length; i++){
+        fondos[i].addEventListener('click',cambiarfondo.bind(this,fondos[i].getAttribute('data-value')));
+    }
+
 }
 
 function reloj(){
@@ -86,13 +100,35 @@ function cerrarventana(){
 
 function abrircalendario(e){
     if(!calendarioabierto){
-        document.getElementById('calendario').removeAttribute("hidden");
+        document.getElementById('calendario').classList.toggle('fade')
         calendarioabierto=true;
         //agregar que en cualquier parte me cierre el calendario
         document.getElementById('pantalla').addEventListener('click',abrircalendario);
         e.stopPropagation();
     }else{
-        document.getElementById('calendario').setAttribute("hidden",true);
+        document.getElementById('calendario').classList.toggle('fade')
+        document.getElementById('pantalla').removeEventListener('click',abrircalendario);
         calendarioabierto=false;
+    }
+}
+
+function mostrarfondos(e){
+    if(!mostrandofondos){
+        document.getElementById('contenedorfondos').classList.toggle('fade')
+        mostrandofondos=true;
+        //agregar que en cualquier parte me cierre el calendario
+        document.getElementById('pantalla').addEventListener('click',mostrarfondos);
+        e.stopPropagation();
+    }else{
+        document.getElementById('contenedorfondos').classList.toggle('fade')
+        document.getElementById('pantalla').removeEventListener('click',mostrarfondos);
+        mostrandofondos=false;
+    }
+}
+
+function cambiarfondo(nombreimagen){
+    if(mostrandofondos){
+        mostrarfondos();
+        document.getElementById('pantalla').style.backgroundImage="url('rsc/img/"+nombreimagen+"')";
     }
 }
