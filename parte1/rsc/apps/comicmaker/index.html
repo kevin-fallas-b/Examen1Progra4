@@ -3,10 +3,41 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>comicsss</title>
+    <title>Comic Maker!</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/funciones.js"></script>
 </head>
-<body>
-    comicsss
+<body id="pantalla">
+    <div id="areacontroles">
+        <div id="contenedorescribealgo">
+            <input type="text" class='campotexto' id='textodibujar' placeholder="Escribe algo!">
+            <input type="button" class='boton' value="Dibujar" id="dibujar">
+        </div>
+        <div id="contenedorseleccionararchivo">
+            <input type="text" class='campotexto' placeholder="Selecciona un archivo" readonly id="nombrearchivo">
+            <input type="button" class='boton' value="Buscar" id="buscararchivo">
+            <input type="file" hidden id="escogerimagen" accept ="image/*">
+        </div>
+    </div>
+
+
+    <div id="contenedorcanvas">
+        <canvas id="areadibujo" height="800" width="600">
+
+        </canvas>
+    </div>
+
+    <a id="linkdescarga">
+        <div id='contenedordescargar'>
+            <img src="img/descargar.png" title='Descargar Comic' alt="Descargar Comic" id='imgdescargar'>
+                <div class="overlay">
+                    <div class="textofondo">
+                        Descargar Comic
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
 </body>
 </html>
