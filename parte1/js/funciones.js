@@ -50,7 +50,7 @@ function openApp(){
      ventanaNueva="<div class='contenedorapp'>"+
                 " <img src='./rsc/img/exit.png' class='botonsalir'>"+
                 " <label class='nombreapp'>"+this.getAttribute('data-value')+" </label>"+
-                " <object class='app' type='text/html' data='./rsc/apps/"+this.id+"/index.html' width='500px' height='300px'>"+
+                " <object class='app' type='text/html' data='./rsc/apps/"+this.id+"' width='500px' height='300px'>"+
                 " </object>"+
                 "</div>";
     document.getElementById("pantalla").insertAdjacentHTML('beforeend',ventanaNueva);

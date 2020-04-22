@@ -1,0 +1,286 @@
+﻿html, body 
+{
+	margin: 0px; /* Comentario en CSS*/
+	padding: 0px; /* Los margenes son reducidos a 0*/
+	overflow: auto; /*Ocultamos el Scroll de la pagina*/
+	font-family: Segoe UI, Century Gothic,Verdana, Arial;
+	background: #F5F8FA;
+}
+
+body{
+	margin: 0 auto;
+	font-family: Arial;
+	font-size: 11px;
+}
+
+a, img{
+  outline: none; border: none;
+}
+
+#post_box{
+	position: relative;
+	width: auto;
+	margin: auto;
+	height: 150px;
+	top: 0px;
+	text-align: center;
+	background: #E5F4F4;
+}
+
+#panel_app{
+	position: relative;
+	width: 95%;
+	border-radius: 5px;
+	border: 1px solid #DDD;
+	margin: auto;
+	height: 630px;
+	background-color: #FFF;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+#main_panel{
+	position: relative;
+	width: auto;
+	border: 0px solid #CCC;
+	margin: auto;
+	height: 390px;
+	overflow: auto;
+}
+
+#txt_post{
+	position: relative;
+	border: 1px solid #008E8E;
+	border-radius: 4px;
+	width: 90%;
+	height: 30px;
+}
+#txt_buscar{
+	position: relative;
+	border: 1px solid #008E8E;
+	border-radius: 4px;
+	width: 90%;
+	height: 30px;
+}
+
+#botonesBuscar{
+	position: relative;
+	display: flex;
+    justify-content: space-evenly;
+	
+}
+
+.cajatexto{
+	padding: 5px;
+	margin: 0px;
+	border-radius: 5px;
+	border: 1px solid #3AB0B0;
+	width: 300px;
+	color: #555;
+}
+
+.post_block{
+    position: relative;
+	width: 95%;
+	margin: auto;
+	margin-top: 10px;
+	border-radius: 5px;
+	background: #FFF;
+	height: auto;
+	border: 1px solid #DDD;
+	border-top: 4px solid #3AB0B0;
+}
+
+.post_block:hover{
+	background: #EEE;
+}
+
+.published_date{
+	font-size: 10px;
+    font-family: "Verdana";
+    position: relative;
+    color: #BBB;
+	margin: 5px;
+	text-align: right;
+}
+
+.post_detail{
+	font-size: 14px;
+    font-family: "Verdana";
+    position: relative;
+    color: #333;
+	margin: 5px;
+	text-align: justify;
+}
+
+.boton{
+	border: 1px solid #008E8E;
+	background: #3AB0B0;
+	color: #FFF;
+	height: 34px;
+	border-radius: 4px;
+	cursor: pointer;
+	position: relative;
+	width: 350px;
+	margin-top: 10px;
+}
+
+.boton:disabled{
+	border: 1px solid #999999;
+  	background-color: #cccccc;
+	color: #666666;
+}
+
+.imgpost{
+	float: left;
+	clear: both;
+	position: relative;
+	top: -18px;
+	left: 5px;
+	margin-right: 15px;
+	border-radius: 100px;
+}
+
+#user_box{
+	position: relative;
+	width: auto;
+	height: 80px;
+	margin: auto;
+	color: #AAA;
+	background: #0061D5 url('https://image.freepik.com/free-vector/blue-geometric-abstract-chaotic-triangle-pattern-background-mosaic-vector-graphic-design_1164-1491.jpg') top center;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+#user_box span{
+	float: left;
+	clear: both;
+	position: absolute;
+	top: 22px;
+	left: 75px;
+	color: #FFF;
+	text-shadow: 1px 1px 0px #AAA;
+}
+
+#msg_box_container{
+	position: fixed;
+	margin-left: auto;
+	left:0;
+	right:10px;
+	width:350px;
+	top:10px;
+	z-index: 100;
+	font-size: 11px;
+	font-family: 'Arial';
+}
+
+.msg_box{
+	position: relative;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	/*text-shadow: 2px 2px 2px #000;*/
+	font-weight: bold;
+	text-align: center;
+}
+
+.msg_box_user{
+	position: absolute;
+	top:200px;
+	border: 5px solid #CCCCCC;
+	background: #EEE;
+	padding: 10px;
+	color: #333;
+	/*text-shadow: 2px 2px 2px #000;*/
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+	z-index: 100;
+	box-shadow: 2px 2px 15px #000;
+}
+
+.msg_box_user span{
+	padding-bottom:10px;
+}
+
+.error{
+	background: #C00000;
+}
+
+.success{
+	background: #29CC70;
+}
+
+.info{
+	background: #1F8DB1;
+}
+
+.warning{
+	background: #FF9900;
+}
+
+@keyframes fadeout {
+    from { opacity: 1; visibility: visible; }
+    to   { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; visibility: hidden; }
+    to   { opacity: 1; visibility: visible; }
+}
+
+.eliminar{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	width: 70px;
+	height: 20px;
+	border-radius: 9px;
+	background-color: #ff4b5b;
+}
+.eliminar:hover{
+	background-color: #d11a2a;
+}
+
+.editar{
+	position: absolute;
+	right: 90px;
+	bottom: 10px;
+	width: 70px;
+	height: 20px;
+	border-radius: 9px;
+	background-color: #00e600;
+}
+.editar:hover{
+	background-color: #00b300;
+}
+.desabilitado{
+    pointer-events: none;
+	opacity: 0.4;
+	border: 1px solid #999999;
+  	background-color: #cccccc;
+	color: #666666;
+}
+
+.imagenpost{
+	position: relative;
+	left: 30%;
+	width: 500px;
+	height: 250px;
+}
+
+.responder{
+	position: absolute;
+	right: 170px;
+	bottom: 10px;
+	width: 80px;
+	height: 20px;
+	border-radius: 9px;
+	background-color: #2ce0e0;
+}
