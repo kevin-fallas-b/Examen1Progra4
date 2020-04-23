@@ -24,7 +24,10 @@
 
       <?php
           echo $html->html_js_header(__JS_PATH . "funciones.js"); 
+          echo $html->html_js_header(__JS_PATH . "alertify.min.js"); 
           echo $html->html_css_header(__CSS_PATH . "style.css","screen"); 
+          echo $html->html_css_header(__CSS_PATH . "alertify.min.css","screen");
+          echo $html->html_css_header(__CSS_PATH . "/themes/default.min.css","screen");
       ?>
 
     <title>Mant. Func</title>

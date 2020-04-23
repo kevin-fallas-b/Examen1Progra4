@@ -101,6 +101,7 @@ html, body {
 	left: 25%;
 	top: 10%;
 	background-color: #1d2620;
+	z-index: 5;
 }
 
 .app{

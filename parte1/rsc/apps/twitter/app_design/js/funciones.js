@@ -40,7 +40,6 @@ function guardarAjax(){
         actualizarNoActualizar();
     }else{
     //post nuevo
-        console.log('id respondiendo: '+idRespondiendo);
         if(respondiendo){
             form.append('respondiendo',idRespondiendo);
             manejarRespuesta();
@@ -99,9 +98,7 @@ function eliminar(id){
         vueltas++;
     }
 
-    console.log("mensajes a borrar: "+JSON.stringify(mensajesABorrar));
     
-    console.log(mensajesABorrar.toString());
     form.append("btn_eliminar",true);
     form.append("id_post", mensajesABorrar.toString());
     axios.post('index.php', form)

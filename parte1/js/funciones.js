@@ -8,7 +8,7 @@ var fondos;
 
 function funcionInicial(e){
     calendarioabierto=false;
-    //document.getElementById('calendario').style.zIndex = -1;
+    document.getElementById('calendario').style.zIndex = -1;
     //encontrar app y darle evento de abrir
     var apps = document.getElementsByClassName("icons");
     for(var i=0; i<apps.length;i++){

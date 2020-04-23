@@ -3,7 +3,16 @@
     $html = new HTML();
     $funcionarios = new CTR_funcionarios();
 
+    if(isset($_POST['guardar'])){
+        $funcionarios->guardar();
+    }
+
+    if(isset($_POST['actualizar'])){
+        $funcionarios->actualizar();
+    }
 ?>
+
+
 <div id='panel_app'><!--este div es casi que la pantalla completa-->
     <div id='box_formulario'><!--este div es la parte superior, donde estan todos los campos para editar informacion-->
         <div id='contenedorfoto'>
