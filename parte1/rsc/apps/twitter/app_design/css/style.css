@@ -43,9 +43,10 @@ a, img{
 	position: relative;
 	width: auto;
 	border: 0px solid #CCC;
-	margin: auto;
 	height: 390px;
 	overflow: auto;
+	margin-left: auto;
+	margin-right: 0px;
 }
 
 #txt_post{
@@ -79,19 +80,58 @@ a, img{
 	color: #555;
 }
 
-.post_block{
+.post_block0{
     position: relative;
 	width: 95%;
-	margin: auto;
 	margin-top: 10px;
 	border-radius: 5px;
 	background: #FFF;
 	height: auto;
 	border: 1px solid #DDD;
 	border-top: 4px solid #3AB0B0;
+	margin-left: auto;
+	margin-right: 2.5%;
 }
 
-.post_block:hover{
+.post_block1{
+    position: relative;
+	width: 90%;
+	margin-top: 10px;
+	border-radius: 5px;
+	background: #FFF;
+	height: auto;
+	border: 1px solid #DDD;
+	border-top: 4px solid #3AB0B0;
+	margin-left: auto;
+	margin-right: 2.5%;
+}
+.post_block2{
+    position: relative;
+	width: 85%;
+	
+	margin-top: 10px;
+	border-radius: 5px;
+	background: #FFF;
+	height: auto;
+	border: 1px solid #DDD;
+	border-top: 4px solid #3AB0B0;
+	margin-left: auto;
+	margin-right: 2.5%;
+}
+.post_block3{
+    position: relative;
+	width: 80%;
+	margin-top: 10px;
+	border-radius: 5px;
+	background: #FFF;
+	height: auto;
+	border: 1px solid #DDD;
+	border-top: 4px solid #3AB0B0;
+	margin-left: auto;
+	margin-right: 2.5%;
+}
+
+.post_block0:hover,.post_block1:hover,.post_block2:hover,.post_block3:hover{
 	background: #EEE;
 }
 
@@ -261,11 +301,24 @@ a, img{
 	background-color: #00b300;
 }
 .desabilitado{
-    pointer-events: none;
 	opacity: 0.4;
 	border: 1px solid #999999;
   	background-color: #cccccc;
 	color: #666666;
+}
+
+.desabilitado > #mensajecancelar{
+	opacity: 1;
+	z-index: 4;
+}
+#mensajecancelar{
+	position: absolute;
+	font-size: 40px;
+	color:red;
+	top:40%;
+	left: 30%;
+	opacity: 0;
+	z-index: -4;
 }
 
 .imagenpost{
@@ -284,3 +337,9 @@ a, img{
 	border-radius: 9px;
 	background-color: #2ce0e0;
 }
+
+.responder:hover{
+	background-color: #229191;
+ 
+}
+

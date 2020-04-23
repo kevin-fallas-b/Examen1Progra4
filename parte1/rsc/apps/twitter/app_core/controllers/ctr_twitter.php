@@ -13,14 +13,15 @@
         }
 
         public function obtener_tweets(){
-            return $this->postdata->get_tweets();
+            $postinfo[0] = strip_tags(trim(str_replace("'","\""," ")));
+            return $this->postdata->buscar($postinfo);
         }
 
         function btn_save_click(){
             $postinfo = array();
 
             $postinfo[0] = strip_tags(trim(str_replace("'","\"",$_POST['txt_post'])));
-
+            $postinfo[1] = $_POST['respondiendo'];
             $this->postdata->insertar_post($postinfo);
             $this->mssg->show_message("","success","success_insert");
         }
@@ -30,6 +31,7 @@
         }
 
         function eliminar(){
+            
             $this->mssg->show_message("","success","success_delete");
             $this->postdata->eliminar($_POST['id_post']);
         }

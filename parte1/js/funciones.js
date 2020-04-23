@@ -8,6 +8,7 @@ var fondos;
 
 function funcionInicial(e){
     calendarioabierto=false;
+    //document.getElementById('calendario').style.zIndex = -1;
     //encontrar app y darle evento de abrir
     var apps = document.getElementsByClassName("icons");
     for(var i=0; i<apps.length;i++){
@@ -101,12 +102,14 @@ function cerrarventana(){
 function abrircalendario(e){
     if(!calendarioabierto){
         document.getElementById('calendario').classList.toggle('fade')
+        document.getElementById('calendario').style.zIndex = 1;
         calendarioabierto=true;
         //agregar que en cualquier parte me cierre el calendario
         document.getElementById('pantalla').addEventListener('click',abrircalendario);
         e.stopPropagation();
     }else{
         document.getElementById('calendario').classList.toggle('fade')
+        document.getElementById('calendario').style.zIndex = -1;
         document.getElementById('pantalla').removeEventListener('click',abrircalendario);
         calendarioabierto=false;
     }

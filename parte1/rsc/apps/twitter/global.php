@@ -45,8 +45,9 @@ ARCHIVO DE CONFIGURACIÓN GLOBAL.
 
 // ************************* GLOBAL FUNCTIONS *********************** //
 
-  set_error_handler("my_error_handler", E_ALL);
-
+   //set_error_handler('my_error_handler',E_ALL);
+  set_error_handler("my_error_handler", E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+  error_reporting(0);
   require_once(__LIB_PATH . "message.php");
 
   /*my_error_handler: Maneja globalmente los warnings y excepciones de PHP y los muestra en

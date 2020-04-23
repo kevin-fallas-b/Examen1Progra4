@@ -2,20 +2,29 @@ window.addEventListener("load",iniciar,false);
 
 var actualizando; //bandera, esta actualizando o no
 var idEditando;//variable que, si en caso de estar editando, guarda el id del post que se esta editando;
+var idRespondiendo; //varaible que guarda a que post se le resta respondiendo
+var respondiendo;// bandera que indica si estoy respondiendo o no
 var btnguardarajax; //btn guardar mediante axios
-var btnguardar; //btn original
-var btnsubirimagen;// boton que ve el usuario
-var inputimagen;//este es invisble, ocupo cuidar cuando tiene cambio. es el <input type'file'>
 var btnresponder;
+var cajonmensajes;//cajon que contiene todos los mensajes
+var mensajes=[]; //array que me guarda todos los mensajes que hay en pantalla. para validaciones mas que todo
 
 function iniciar(){
     btnguardarajax = document.getElementById("btn_saveajax");
     btnsubirimagen = document.getElementById("btn_subirimagen");
     inputimagen =  document.getElementById("escogerimagen");
     btnguardarajax.addEventListener("click",guardarAjax,false);
-    btnsubirimagen.addEventListener("click",buscarimagen,false);
-    inputimagen.addEventListener("change",subirimagen,false);
     actualizando=false;
+    respondiendo=false;
+    cajonmensajes = document.getElementById('main_panel');
+    cajonmensajes.addEventListener('change',encontrarMensajes);
+    idRespondiendo = null;
+    mensajes=[];
+}
+
+function encontrarMensajes(){
+    mensajes = Array.prototype.slice.call(document.getElementsByClassName("post_block0"));    
+    mensajes.push(...Array.prototype.slice.call(document.getElementsByClassName("post_block1")),...Array.prototype.slice.call(document.getElementsByClassName("post_block2")),...Array.prototype.slice.call(document.getElementsByClassName("post_block3")));
 }
 
 function guardarAjax(){
@@ -31,12 +40,20 @@ function guardarAjax(){
         actualizarNoActualizar();
     }else{
     //post nuevo
+        console.log('id respondiendo: '+idRespondiendo);
+        if(respondiendo){
+            form.append('respondiendo',idRespondiendo);
+            manejarRespuesta();
+        }else{
+            form.append('respondiendo','null');
+        }
         form.append("btn_save",true);
+        
     }
     //hacer el post
     axios.post('index.php', form)
     .then(function (response) {
-        console.log(response.data);
+       // console.log(response.data);
         document.getElementById("frm_service").reset()
         buscar("");
     })
@@ -59,14 +76,37 @@ function buscar(aBuscar){
 }
 
 
-
 function eliminar(id){
     var form = new FormData();
+    //buscar respuestas a mi comentario.
+    encontrarMensajes();
+    var mensajesABorrar = [];//array que contiene todo lo que ocupo eliminar
+    mensajesABorrar.push(id);
+    var seguir=true; //bandera
+    var vueltas =0;
+    while(seguir){
+        seguir = false;
+        for(var i=vueltas;i<mensajesABorrar.length;i++){
+            for(var k=0;k<mensajes.length;k++){
+                if(mensajesABorrar[i] == mensajes[k].getAttribute('data-value')){
+                    mensajesABorrar.push(mensajes[k].id.replace('mensajeid',''));
+                    seguir=true;
+                    mensajes.splice(k,1);
+                    k--;
+                }
+            }
+        }
+        vueltas++;
+    }
+
+    console.log("mensajes a borrar: "+JSON.stringify(mensajesABorrar));
+    
+    console.log(mensajesABorrar.toString());
     form.append("btn_eliminar",true);
-    form.append("id_post", id);
+    form.append("id_post", mensajesABorrar.toString());
     axios.post('index.php', form)
     .then(function (response) {
-        buscar("");
+           buscar(' ');
     })
     .catch(function (error) {
 
@@ -81,49 +121,53 @@ function editar(id,post){
 }
 
 function actualizarNoActualizar(){
-    var nodes = document.getElementsByClassName("post_block");
+
     var txt_buscar =  document.getElementById("txt_buscar");
     if(actualizando){
-        btnsubirimagen.setAttribute("disabled","disabled");
         txt_buscar.setAttribute("disabled","disabled");
         btnguardarajax.value = "Actualizar con ajax";
-        for(var i = 0; i < nodes.length; i++){
-            nodes[i].classList.add('desabilitado');
-        }
+        cajonmensajes.classList.add('desabilitado')
+        cajonmensajes.addEventListener('keydown',cancelaractualizar);
     }else{
-        txt_buscar.removeAttribute("disabled");
-        btnsubirimagen.removeAttribute("disabled");
-        btnguardarajax.value= "publicar Con ajax";
-        for(var i = 0; i < nodes.length; i++){
-            nodes[i].classList.remove('desabilitado');
-        }
+        txt_buscar.removeAttribute("disabled");;
+        btnguardarajax.value= "Publicar con ajax";
+        cajonmensajes.classList.remove('desabilitado');
+        cajonmensajes.removeEventListener('keydown',cancelaractualizar);
         idEditando=-1;
     }
 }
 
+function cancelaractualizar(e){
 
-function buscarimagen(){
-   inputimagen.click();
-}
-
-function subirimagen(){
-    var form = new FormData();
-    form.append("subirimagen",true);
-    form.append("escogerimagen",inputimagen.files[0])
-    axios.post('index.php', form,{
-        headers: {
-          'Content-Type': 'multipart/form-data'
+    if(e.code == "Escape"){
+        if(respondiendo){
+            idRespondiendo=null;
+            manejarRespuesta();
+        }else{
+            actualizando = false;
+            idEditando =-1;
+            actualizarNoActualizar();
         }
-    })
-    .then(function (response) {
-        console.log(response.data);
-        buscar("");
-    })
-    .catch(function (error) {
-
-    })  
+    }
 }
 
+//metodo que se llama al presionar btn responder
 function responder(id){
-    console.log('respondio a post: '+id);
+    idRespondiendo = id;
+    manejarRespuesta();
+}
+
+function manejarRespuesta(){
+    if(!respondiendo){
+        respondiendo=true;
+        txt_buscar.setAttribute("disabled","disabled");
+        cajonmensajes.classList.add('desabilitado')
+        cajonmensajes.addEventListener('keydown',cancelaractualizar);
+    }else{
+        //dejo de responer
+        respondiendo=false;
+        txt_buscar.removeAttribute("disabled");
+        cajonmensajes.classList.remove('desabilitado');
+        cajonmensajes.removeEventListener('keydown',cancelaractualizar);
+    }
 }

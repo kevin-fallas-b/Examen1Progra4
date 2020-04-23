@@ -47,15 +47,17 @@ function next() {
 }
 
 function previous() {
-  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-  showCalendar(currentMonth, currentYear);
+  if(calendarioabierto){
+    
+  }
 }
 
 function jump() {
-  currentYear = parseInt(selectYear.value);
-  currentMonth = parseInt(selectMonth.value);
-  showCalendar(currentMonth, currentYear);
+  if(calendarioabierto){
+    currentYear = parseInt(selectYear.value);
+    currentMonth = parseInt(selectMonth.value);
+    showCalendar(currentMonth, currentYear);
+  }
 }
 
 function showCalendar(month, year) {
