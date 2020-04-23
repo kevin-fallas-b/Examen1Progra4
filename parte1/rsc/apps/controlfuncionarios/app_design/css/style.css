@@ -1,0 +1,148 @@
+﻿html, body 
+{
+	margin: 0px; /* Comentario en CSS*/
+	padding: 0px; /* Los margenes son reducidos a 0*/
+	overflow: initial !important; /*Ocultamos el Scroll de la pagina*/
+	font-family: Segoe UI, Century Gothic,Verdana, Arial;
+	background: #F5F8FA;
+}
+
+body{
+	margin: 0 auto;
+	font-family: Arial;
+	font-size: 11px;
+}
+#panel_app{
+	position: relative;
+	width: 95%;
+	border-radius: 5px;
+	border: 1px solid #DDD;
+	margin: auto;
+	height: auto;
+	background-color: #FFF;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+#main_panel{
+	position: relative;
+	width: auto;
+	border: 0px solid #CCC;
+	height: 700px;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+#box_formulario{
+	position: relative;
+	width: auto;
+	margin: auto;
+	height: 300px;
+	top: 0px;
+	text-align: center;
+	background: #E5F4F4;
+}
+
+#contenedorfoto{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 70px;
+    height: 70px;
+    border: 3px double black;
+}
+
+.imgfunc{
+    position: relative;
+    height: 64px;
+    width: 64px;
+}
+.cajatexto{
+	padding: 5px;
+    margin: 0px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #3AB0B0;
+    width: 150px;
+    height: 30px;
+	color: #555;
+}
+
+#txtbuscar{
+    position: relative;
+    top:5px;
+    bottom: 50px;
+    padding: 5px;
+	margin: 0px;
+	border-radius: 5px;
+	border: 1px solid #3AB0B0;
+    width: 600px;
+    height: 30px;
+	color: #555;
+}
+
+.boton{
+	border: 1px solid #008E8E;
+	background: #3AB0B0;
+	color: #FFF;
+	height: 34px;
+	border-radius: 4px;
+	cursor: pointer;
+	position: relative;
+	width: 350px;
+	margin-top: 10px;
+}
+
+.boton:disabled{
+	border: 1px solid #999999;
+  	background-color: #cccccc;
+	color: #666666;
+}
+
+#areacontroles{
+    position: absolute;
+    width: 95%;
+    bottom: 10px;
+}
+
+#datospersonales{
+    position: relative;
+    margin-left: 70px;
+    top: 40px;
+    margin-bottom: 10px;
+
+}
+#datostrabajo{
+    position: absolute;
+    margin-left: 70px;
+    top: 130px;
+    margin-bottom: 10px;
+}
+
+#lbldatospersonales{
+    position: absolute;
+    top: -15px;
+    left: 25px;
+}
+#lbldatoslaborales{
+    position: absolute;
+}
+
+#fechan{
+    position: absolute;
+    top: 40px;
+    left: 11px;
+}
+
+#puesto{
+    position: absolute;
+    top: 40px;
+    left: 11px;
+}
+#observaciones{
+    position: relative;
+    width: 313px;
+    margin-right: -163px;
+}
