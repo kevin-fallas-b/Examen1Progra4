@@ -8,6 +8,7 @@
     <div id='box_formulario'><!--este div es la parte superior, donde estan todos los campos para editar informacion-->
         <div id='contenedorfoto'>
             <img src="app_core/resources/images/user.png" alt="" class='imgfunc'>
+            <input type="button" id='btncambiarimg' class='boton' value='Cambiar'>
         </div>
         <div id='datospersonales'>
             <label id='lbldatospersonales'>Datos Personales:</label>

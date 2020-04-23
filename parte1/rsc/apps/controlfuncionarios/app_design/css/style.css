@@ -71,14 +71,13 @@ body{
 }
 
 #txtbuscar{
-    position: relative;
-    top:5px;
-    bottom: 50px;
+    position: absolute;
+    top:-30px;
+    left: 2.5%;
     padding: 5px;
-	margin: 0px;
 	border-radius: 5px;
 	border: 1px solid #3AB0B0;
-    width: 600px;
+    width: 97.5%;
     height: 30px;
 	color: #555;
 }
@@ -145,4 +144,11 @@ body{
     position: relative;
     width: 313px;
     margin-right: -163px;
+}
+#btncambiarimg{
+    position: absolute;
+    width: 70px;
+    height: 25px;
+    left: 0px;
+    bottom: -30px
 }
