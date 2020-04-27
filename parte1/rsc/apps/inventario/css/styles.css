@@ -1,0 +1,118 @@
+html, body { 
+    margin: 0;
+    padding: 0;
+    font-family: Segoe UI, Verdana;
+    overflow: auto;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+#panel_form{
+    position: relative;
+    width: 520px;
+    height: 100px;
+    border: 1px solid #AAA;
+    border-radius: 8px;
+    background: #9ecdd8;
+    margin: 20px 20px;
+    padding: 20px;
+    font-family: Segoe UI, Verdana;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.campo_texto{
+    position: relative;
+    width: 150px;
+    border-radius: 20px;
+    border: 1px solid #AAA;
+    padding: 2px;
+    margin: 0px 20px 10px 0px;
+}
+.filacampos{
+    position: relative;
+    width: 520px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+#panel_data{
+    position: relative;
+    width: 520px;
+    height: 400px;
+    border: 1px solid #AAA;
+    border-radius: 8px;
+    background: #cce1e8;
+    padding: 20px;
+    font-family: Segoe UI, Verdana;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px 20px;
+}
+
+#resultados {
+    position: relative;
+    width: 450px;
+    height: 280px;
+    border: 2px solid #333;
+    border-radius: 3px;
+    background: #EEE;
+    padding: 20px;
+    font-family: Segoe UI, Verdana;
+    font-size: 12px;
+    overflow: scroll;
+}
+
+table, td {
+    border: 1px solid #999;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+tbody tr:hover td{
+    background: #EBF8A4;
+    cursor: pointer;
+}
+
+thead td {
+    background: #205dad;
+    color: #FFF;
+}
+
+
+tbody tr:nth-child(even) {background: #CCC}
+tbody tr:nth-child(odd) {background: #FFF}
+
+.search{
+    padding:5px;
+    border-radius: 20px;
+    border: 1px solid #AAA;
+}
+
+
+#contenedorcanvas{
+    position: absolute;
+    top: 50px;
+    left: 600px;
+    height: 450px;
+    min-width: 520px;
+    width: auto;
+    background-color: white;
+}
+
+
+#canvasgrafico{
+    background-color: white;
+}
+
+#opciones{
+    display: flex;
+    justify-content: space-evenly;
+}
+#generargrafico{
+    position: absolute;
+    left: 40%;
+}

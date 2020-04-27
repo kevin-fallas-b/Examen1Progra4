@@ -10,14 +10,22 @@
     if(isset($_POST['actualizar'])){
         $funcionarios->actualizar();
     }
+    if(isset($_GET["datobusqueda"])){
+        die($funcionarios->buscar());
+    }
+    if(isset($_GET["eliminar"])){
+        die($funcionarios->eliminar());
+    }
+
 ?>
 
 
 <div id='panel_app'><!--este div es casi que la pantalla completa-->
     <div id='box_formulario'><!--este div es la parte superior, donde estan todos los campos para editar informacion-->
         <div id='contenedorfoto'>
-            <img src="app_core/resources/images/user.png" alt="" class='imgfunc'>
+            <img src="app_core/resources/images/user.png" alt="" id='fotofuncselec' class='imgfunc'>
             <input type="button" id='btncambiarimg' class='boton' value='Cambiar'>
+            <input type="file" hidden id="escogerimagen" accept ="image/*">
         </div>
         <div id='datospersonales'>
             <label id='lbldatospersonales'>Datos Personales:</label>
@@ -34,7 +42,7 @@
             <input type="text" class='cajatexto' id='direccion' placeholder="Direccion">
             <input type="text" class='cajatexto' id='departamento' placeholder="Departamento">
             <input type="text" class='cajatexto' id='puesto' placeholder="Puesto">
-            <input type="text" class='cajatexto' id='salario' placeholder="Salario">
+            <input type="text" class='cajatexto' id='salario' placeholder="Salario (mensual)">
             <input type="text" class='cajatexto' id='observaciones' placeholder="Observaciones">
         </div>
         <div id='areacontroles'>
@@ -43,7 +51,7 @@
         </div>
     </div>
 
-    <div id='main_panel'> <!--este div es el area donde se va a tener el acordion con la informacion de cada funcionario-->
-
+    <div id='main_panel'> <!--este div es el area donde se va a tener el acordion con la informacion de cada funcionario-->   
+    
     </div>
-</div>
+</div> 
